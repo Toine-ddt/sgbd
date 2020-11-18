@@ -4,30 +4,30 @@
 --   Date de creation :  10/11/20  09:08                       
 -- ============================================================
 
-drop table JOUEUR cascade constraints;
+-- drop table JOUEUR ;
 
-drop table EQUIPE cascade constraints;
+-- drop table EQUIPE ;
 
-drop table CLUB cascade constraints;
+-- drop table CLUB ;
 
-drop table MEMBRE cascade constraints;
+-- drop table MEMBRE ;
 
-drop table ENTRAINEUR cascade constraints;
+-- drop table ENTRAINEUR ;
 
-drop table RENCONTRE cascade constraints;
+-- drop table RENCONTRE ;
 
-drop table Entrainer cascade constraints;
+-- drop table Entrainer ;
 
-drop table Participer cascade constraints;
+-- drop table Participer ;
 
-drop table Effectuer cascade constraints;
+-- drop table Effectuer ;
 
 -- ============================================================
 --   Table : JOUEUR                                            
 -- ============================================================
 create table JOUEUR
 (
-    NUMERO_LICENCE                   NUMBER(10)             not null,
+    NUMERO_LICENCE                   INT(10)             not null,
     NOM_JOUEUR                       CHAR(20)               not null,
     PRENOM_JOUEUR                    CHAR(20)                       ,
     ADRESSE_JOUEUR                   CHAR(20)                       ,
@@ -42,9 +42,9 @@ create table JOUEUR
 
 create table EQUIPE
 (
-    NUMERO_EQUIPE                   NUMBER(10)              not null,
+    NUMERO_EQUIPE                   INT(10)              not null,
     NOM_CATEGORIE                   CHAR(20)                not null,
-    NUMERO_CATEGORIE                NUMBER(10)                      ,
+    NUMERO_CATEGORIE                INT(10)                      ,
     constraint pk_equipe primary key (NUMERO_EQUIPE)
 );
 
@@ -55,7 +55,7 @@ create table EQUIPE
 
 create table CLUB
 (
-    NUMERO_CLUB                     NUMBER(10)              not null,                              
+    NUMERO_CLUB                     INT(10)              not null,                              
     constraint pk_club primary key (NUMERO_CLUB)
 );
 
@@ -66,7 +66,7 @@ create table CLUB
 
 create table MEMBRE
 (
-    NUMERO_MEMBRE                   NUMBER(10)              not null,
+    NUMERO_MEMBRE                   INT(10)              not null,
     NOM_MEMBRE                      CHAR(20)                not null,
     PRENOM_MEMBRE                   CHAR(20)                        ,
     NUMERO_TEL_MEMBRE               CHAR(20)                        ,
@@ -84,7 +84,7 @@ create table MEMBRE
 
 create table ENTRAINEUR
 (
-    NUMERO_ENTRAINEUR                NUMBER(10)             not null,
+    NUMERO_ENTRAINEUR                INT(10)             not null,
     NOM_ENTRAINEUR                   CHAR(20)               not null,
     PRENOM_ENTRAINEUR                CHAR(20)                       ,
     DATE_ENTREE_ENTRAINEUR           DATE                           ,
@@ -98,9 +98,9 @@ create table ENTRAINEUR
 
 create table RENCONTRE
 (
-    NUMERO_RENCONTRE                NUMBER(10)             not null,
+    NUMERO_RENCONTRE                INT(10)             not null,
     DATE_RENCONTRE                  DATE                           ,
-    SCORE                           NUMBER(10)                     ,
+    SCORE                           INT(10)                     ,
     constraint pk_rencontre primary key (NUMERO_RENCONTRE)
 );
 
@@ -110,8 +110,8 @@ create table RENCONTRE
 
 create table Entrainer
 (
-    NUMERO_EQUIPE                   NUMBER(10)              not null,
-    NUMERO_ENTRAINEUR               NUMBER(10)              not null,
+    NUMERO_EQUIPE                   INT(10)              not null,
+    NUMERO_ENTRAINEUR               INT(10)              not null,
     DATE_ENTREE_EQUIPE              DATE                            ,
     constraint pk_entrainer primary key (NUMERO_EQUIPE, NUMERO_ENTRAINEUR)
 );
@@ -122,8 +122,8 @@ create table Entrainer
 
 create table Participer
 (
-    NUMERO_EQUIPE                   NUMBER(10)              not null,
-    NUMERO_RENCONTRE                NUMBER(10)              not null,                         ,
+    NUMERO_EQUIPE                   INT(10)              not null,
+    NUMERO_RENCONTRE                INT(10)              not null,                        
     constraint pk_participer primary key (NUMERO_EQUIPE, NUMERO_RENCONTRE)
 );
 
@@ -133,10 +133,10 @@ create table Participer
 
 create table Effectuer
 (
-    NUMERO_LICENCE                  NUMBER(10)              not null,
-    NUMERO_RENCONTRE                NUMBER(10)              not null, 
-    NOMBRE_POINTS_MARQUES           NUMBER(10)                      ,
-    NOMBRE_FAUTES                   NUMBER(10)                      ,
+    NUMERO_LICENCE                  INT(10)              not null,
+    NUMERO_RENCONTRE                INT(10)              not null, 
+    NOMBRE_POINTS_MARQUES           INT(10)                      ,
+    NOMBRE_FAUTES                   INT(10)                      ,
     constraint pk_effectuer primary key (NUMERO_LICENCE, NUMERO_RENCONTRE)
 );
 
